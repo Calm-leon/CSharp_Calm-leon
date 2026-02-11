@@ -1,59 +1,92 @@
-﻿/*
- * 1. Validar si es usuario existente o si se debe registrar, y generar un sistema de registro o login
- * 2. El programa debe ser capaz de darle la bienvenida a un usuario existente si en efecto existe
- * 3. El programa debe repetirse hasta que se registren las 10 personas
- */
+﻿// ============================================================================
+// RESTAURANT RESERVATION SYSTEM - 10 TABLES
+// ============================================================================
+// Description: Simple console-based reservation system for a restaurant
+// Functionality:
+//   - Allows registered and new users to make reservations
+//   - Stores up to 10 reservations (one per table)
+//   - Validates existing users and registers new ones
+//   - Displays all reservations when the restaurant is full
 
-string[] userNames = new string[10] {"", "", "", "", "", "", "", "", "", ""};
+// Maximum capacity: 10 tables/reservations
+const int MAX_RESERVATIONS = 10;
 
-int arrayCurrentIndex = 0;
-bool userType;
+// Array to store registered user names
+string[] userNames = new string[MAX_RESERVATIONS];
+
+// Tracks the current number of reservations
+int currentReservationCount = 0;
+bool isRegisteredUser;
 
 Console.WriteLine("Welcome to the best restaurant in the world!");
-while (arrayCurrentIndex < 10)
+
+// Main reservation loop - continues until all 10 tables are booked
+while (currentReservationCount < MAX_RESERVATIONS)
 {
-    /*if (arrayCurrentIndex == 10)
+    Console.WriteLine("\n--------------------------------------");
+    Console.WriteLine("Are you a registered user? (true/false)");
+    
+    // Get user input and convert to boolean
+    if (!bool.TryParse(Console.ReadLine(), out isRegisteredUser))
     {
-        Console.WriteLine("The restaurant is full, try again the next year");
-        Environment.Exit(0);
-    }*/
-    Console.WriteLine("\n \nAre you registered user? Write true, or write false to register");
-    userType = Convert.ToBoolean(Console.ReadLine());
+        Console.WriteLine("Invalid input. Please enter 'true' or 'false'.");
+        continue;
+    }
 
-    if (userType == true)
+    if (isRegisteredUser)
     {
-        Console.WriteLine("Hello, you are a registered user, please enter your exact user name");
-        string userToSearch = Console.ReadLine();
-        Console.WriteLine("The user you searched is {0}", userToSearch);
-        int index = Array.IndexOf(userNames, userToSearch);
+        // Handle registered user login
+        Console.WriteLine("Please enter your exact user name:");
+        string userToSearch = Console.ReadLine()?.Trim();
+        
+        // Search for the user in the registered names array
+        int foundIndex = Array.IndexOf(userNames, userToSearch);
 
-        if (index == -1)
+        if (foundIndex == -1)
         {
-            Console.WriteLine("User not found, try again or register");
+            Console.WriteLine("User not found. Please try again or register as a new user.");
         }
         else
         {
-            Console.WriteLine("Welcome {0}, it's a pleasure to give your food", userToSearch);
+            Console.WriteLine($"Welcome back, {userToSearch}! It's a pleasure to serve you.");
         }
     }
-    else if (userType == false)
+    else
     {
-        Console.WriteLine("Please write and remember your User Name");
+        // Handle new user registration
+        Console.WriteLine("Please enter and remember your User Name:");
+        string newUserName = Console.ReadLine()?.Trim();
 
-        userNames[arrayCurrentIndex] = Console.ReadLine();
+        // Validate input is not empty
+        if (string.IsNullOrEmpty(newUserName))
+        {
+            Console.WriteLine("User name cannot be empty. Please try again.");
+            continue;
+        }
 
-        Console.WriteLine("Your User has been saved successfully\n" + 
-                          "Your User Name is> {0}", userNames[arrayCurrentIndex]);
-        arrayCurrentIndex++;
+        // Store new user in the next available slot
+        userNames[currentReservationCount] = newUserName;
+
+        Console.WriteLine($"✓ User registered successfully!");
+        Console.WriteLine($"  User Name: {newUserName}");
+        Console.WriteLine($"  Table: {currentReservationCount + 1}/{MAX_RESERVATIONS}");
+        
+        currentReservationCount++;
     }
 }
 
-Console.WriteLine("The restaurant is full, try again the next year\n These are the guest to the dinner:");
+// Restaurant is full - display final summary
+Console.WriteLine("\n============================================");
+Console.WriteLine("The restaurant is now FULL!");
+Console.WriteLine("Thank you for your reservations!");
+Console.WriteLine("These are tonight's dinner guests:");
+Console.WriteLine("============================================");
 
-int auxIndex = 0;
-foreach (string element in userNames)
+// Display all reservations with table numbers
+for (int i = 0; i < MAX_RESERVATIONS; i++)
 {
-    Console.WriteLine("User number: {0} and user name: {1}", auxIndex + 1, userNames[auxIndex]);
-    auxIndex++;
+    Console.WriteLine($"Table {i + 1,2}: {userNames[i]}");
 }
+
+Console.WriteLine("============================================");
 Environment.Exit(0);
