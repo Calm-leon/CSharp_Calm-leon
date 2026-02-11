@@ -1,82 +1,82 @@
-# Restaurant 10 Tables Reservation System
+# Sistema de Reservación de Restaurante - 10 Mesas
 
-## 📋 Description
+## 📋 Descripción
 
-A simple console-based reservation management system for a restaurant with 10 tables. The application allows users to either log in as existing customers or register as new ones to make dinner reservations.
-
----
-
-## 🎯 Objective
-
-Create a functional reservation system that:
-- Validates registered users and provides them with access
-- Manages new user registrations with unique names
-- Maintains a capacity limit of 10 reservations (one per table)
-- Displays all confirmed reservations once the restaurant reaches full capacity
+Un sistema simple de gestión de reservaciones basado en consola para un restaurante con 10 mesas. La aplicación permite a los usuarios iniciar sesión como clientes registrados o registrarse como nuevos para hacer reservaciones de cena.
 
 ---
 
-## 🛠️ Technologies Used
+## 🎯 Objetivo
 
-- **Language**: C# .NET
-- **Type**: Console Application (.NET Core/Framework)
-- **Runtime**: .NET 6.0 or higher
+Crear un sistema de reservaciones funcional que:
+- Valide usuarios registrados y les proporcione acceso
+- Gestione registros de nuevos usuarios con nombres únicos
+- Mantenga un límite de capacidad de 10 reservaciones (una por mesa)
+- Muestre todas las reservaciones confirmadas cuando el restaurante alcance su capacidad máxima
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Lenguaje**: C# .NET
+- **Tipo**: Aplicación de Consola (.NET Core/Framework)
+- **Runtime**: .NET 6.0 o superior
 - **IDE**: Visual Studio / Visual Studio Code
 
 ---
 
-## 📁 Project Structure
+## 📁 Estructura del Proyecto
 
 ```
 Restaurant10TablesReservationSystem/
-├── Restaurant10TablesReservationSystem.sln      # Visual Studio Solution file
-└── Restaurant10TablesReservationSystem/          # Main project folder
-    ├── Program.cs                                # Main application logic
-    └── Restaurant10TablesReservationSystem.csproj # Project configuration
+├── Restaurant10TablesReservationSystem.sln      # Archivo de solución de Visual Studio
+└── Restaurant10TablesReservationSystem/          # Carpeta del proyecto principal
+    ├── Program.cs                                # Lógica principal de la aplicación
+    └── Restaurant10TablesReservationSystem.csproj # Configuración del proyecto
 ```
 
 ---
 
-## ⚙️ How to Run
+## ⚙️ Cómo Ejecutar
 
-### Prerequisites
-- .NET 6.0 or higher installed
-- Visual Studio or Visual Studio Code with C# extension
+### Requisitos Previos
+- .NET 6.0 o superior instalado
+- Visual Studio o Visual Studio Code con extensión de C#
 
-### Running the Application
+### Ejecutar la Aplicación
 
-**Option 1: Using Visual Studio**
-1. Open `Restaurant10TablesReservationSystem.sln`
-2. Press `F5` or click "Run" to start the application
-3. Follow the console prompts
+**Opción 1: Usando Visual Studio**
+1. Abre `Restaurant10TablesReservationSystem.sln`
+2. Presiona `F5` o haz clic en "Ejecutar" para iniciar la aplicación
+3. Sigue los avisos de la consola
 
-**Option 2: Using Command Line**
+**Opción 2: Usando la Línea de Comandos**
 ```bash
 cd Restaurant10TablesReservationSystem\Restaurant10TablesReservationSystem
 dotnet run
 ```
 
-**Option 3: Using Visual Studio Code**
-1. Open the project folder in VS Code
-2. Open the terminal and run: `dotnet run`
+**Opción 3: Usando Visual Studio Code**
+1. Abre la carpeta del proyecto en VS Code
+2. Abre la terminal y ejecuta: `dotnet run`
 
 ---
 
-## 🎮 How to Use
+## 🎮 Cómo Usar
 
-1. **Launch the application** - You'll see the welcome message
-2. **When prompted**, enter `true` if you're a registered user or `false` to register
-3. **If registered user**:
-   - Enter your exact user name
-   - System checks if you exist
-   - If found, you're welcomed back
-4. **If new user**:
-   - Enter a user name you'll remember
-   - Your reservation will be confirmed with a table number
-5. **Process repeats** until all 10 tables are booked
-6. **Final screen** displays all dinner guests with their assigned tables
+1. **Inicia la aplicación** - Verás el mensaje de bienvenida
+2. **Cuando se te solicite**, ingresa `true` si eres un usuario registrado o `false` para registrarte
+3. **Si eres usuario registrado**:
+   - Ingresa tu nombre de usuario exacto
+   - El sistema verifica si existes
+   - Si se encuentra, serás bienvenido nuevamente
+4. **Si eres nuevo usuario**:
+   - Ingresa un nombre de usuario que recuerdes
+   - Tu reservación será confirmada con un número de mesa
+5. **El proceso se repite** hasta que todas las 10 mesas estén reservadas
+6. **Pantalla final** muestra todos los clientes de la cena con sus mesas asignadas
 
-### Example Interaction
+### Ejemplo de Interacción
 ```
 Welcome to the best restaurant in the world!
 
@@ -84,70 +84,70 @@ Welcome to the best restaurant in the world!
 Are you a registered user? (true/false)
 false
 Please enter and remember your User Name:
-John Smith
+Juan García
 ✓ User registered successfully!
-  User Name: John Smith
+  User Name: Juan García
   Table: 1/10
 ```
 
 ---
 
-## 📚 Key Concepts Demonstrated
+## 📚 Conceptos Clave Demostrados
 
-### Object-Oriented Programming (OOP)
-- **Encapsulation**: Using constants and semantic variable naming
-- **Modularity**: Clear logical flow in the main program
-- **State Management**: Tracking reservations and user data
+### Programación Orientada a Objetos (POO)
+- **Encapsulación**: Uso de constantes y nomenclatura de variables significativa
+- **Modularidad**: Flujo lógico claro en el programa principal
+- **Gestión de Estado**: Seguimiento de reservaciones y datos de usuarios
 
-### Business Logic
-- **Data Validation**: Checking for duplicate registrations
-- **User Authentication**: Distinguishing between registered and new users
-- **Data Persistence**: Temporary storage of reservation information
+### Lógica de Negocio
+- **Validación de Datos**: Verificación de registros duplicados
+- **Autenticación de Usuario**: Distinción entre usuarios registrados y nuevos
+- **Persistencia de Datos**: Almacenamiento temporal de información de reservaciones
 
-### C# Fundamentals
-- **Arrays**: Dynamic storage of user names
-- **Control Flow**: Loops and conditional statements
-- **String Manipulation**: User input handling and formatting
-- **Input/Output**: Console-based user interactions
-- **Error Handling**: Input validation with `TryParse`
-
----
-
-## 🔍 Code Quality Improvements
-
-This version includes:
-- **Clear Comments**: Comprehensive documentation of functionality
-- **Semantic Variables**: Meaningful variable names (e.g., `currentReservationCount` instead of `arrayCurrentIndex`)
-- **Input Validation**: Safe parsing of user input with `TryParse`
-- **Null Safety**: Trim and null-check on string inputs
-- **Better UX**: Enhanced console output with visual separators
-- **Constants**: Magic numbers replaced with named constants
-- **String Interpolation**: Modern C# syntax for cleaner output
+### Fundamentos de C#
+- **Arreglos**: Almacenamiento dinámico de nombres de usuarios
+- **Control de Flujo**: Ciclos y sentencias condicionales
+- **Manipulación de Cadenas**: Manejo y formato de entrada del usuario
+- **Entrada/Salida**: Interacciones basadas en consola
+- **Manejo de Errores**: Validación de entrada con `TryParse`
 
 ---
 
-## 📝 Future Enhancements (Optional)
+## 🔍 Mejoras de Calidad de Código
 
-Potential improvements without changing core architecture:
-- Add reservation date/time tracking
-- Implement a simple file-based persistence (save/load reservations)
-- Add party size information per reservation
-- Include reservation cancellation functionality
-- Add reservation search by date or guest name
-
----
-
-## 📄 License
-
-This project is provided as-is for educational purposes.
+Esta versión incluye:
+- **Comentarios Claros**: Documentación comprehensiva de la funcionalidad
+- **Variables Semánticas**: Nombres significativos (ej. `currentReservationCount` en lugar de `arrayCurrentIndex`)
+- **Validación de Entrada**: Análisis seguro de entrada de usuario con `TryParse`
+- **Seguridad Nula**: Verificación de null-check y trim en cadenas
+- **Mejor UX**: Salida mejorada de consola con separadores visuales
+- **Constantes**: Números mágicos reemplazados con constantes nombradas
+- **Interpolación de Cadenas**: Sintaxis moderna de C# para salida más limpia
 
 ---
 
-## 📧 Support
+## 📝 Mejoras Futuras (Opcional)
 
-For questions or issues, please refer to the project comments in `Program.cs`.
+Posibles mejoras sin cambiar la arquitectura principal:
+- Agregar seguimiento de fecha/hora de reservación
+- Implementar persistencia simple basada en archivos (guardar/cargar reservaciones)
+- Agregar información del tamaño del grupo por reservación
+- Incluir funcionalidad de cancelación de reservaciones
+- Agregar búsqueda de reservaciones por fecha o nombre de cliente
 
 ---
 
-**Last Updated**: February 2026  
-**Version**: 1.1 (Improved with documentation and code quality enhancements)
+## 📄 Licencia
+
+Este proyecto se proporciona tal cual con fines educativos.
+
+---
+
+## 📧 Soporte
+
+Para preguntas o problemas, consulta los comentarios en `Program.cs`.
+
+---
+
+**Última Actualización**: Febrero 2026  
+**Versión**: 1.1 (Mejorado con documentación y mejoras de calidad del código)
